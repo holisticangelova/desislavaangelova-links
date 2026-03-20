@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Десислава Ангелова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #8a9e8c;
+    --blush: #d4a5a0;
+    --cream: #f7f2ec;
+    --deep: #2c2c2a;
+    --gold: #c9a96e;
+    --muted: #9e9e90;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(138,158,140,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(212,165,160,0.15) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238a9e8c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Jost', sans-serif;
+    color: var(--deep);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px 60px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Decorative top line */
+  .top-ornament {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--sage));
+    margin-bottom: 28px;
+  }
+
+  /* Avatar */
+  .avatar-wrap {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 20px;
+  }
+
+  .avatar-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid var(--sage);
+    opacity: 0.6;
+    animation: rotate 20s linear infinite;
+  }
+
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage) 0%, var(--blush) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  /* Name & title */
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--deep);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  .divider-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .subtitle {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .badge {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1px solid rgba(138,158,140,0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .badge::before {
+    content: '✦';
+    font-size: 8px;
+    color: var(--gold);
+  }
+
+  /* Separator */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0;
+    width: 100%;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(138,158,140,0.3), transparent);
+  }
+
+  .ornament-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--sage);
+    opacity: 0.6;
+  }
+
+  /* Links */
+  .links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    background: white;
+    border: 1px solid rgba(138,158,140,0.2);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--deep);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .link-card:nth-child(1) { animation-delay: 0.1s; }
+  .link-card:nth-child(2) { animation-delay: 0.2s; }
+  .link-card:nth-child(3) { animation-delay: 0.3s; }
+  .link-card:nth-child(4) { animation-delay: 0.4s; }
+
+  .link-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(138,158,140,0.06), rgba(212,165,160,0.06));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .link-card:hover::before { opacity: 1; }
+
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(44,44,42,0.08);
+    border-color: rgba(138,158,140,0.4);
+  }
+
+  /* Special highlight for seminar card */
+  .link-card.highlight {
+    background: linear-gradient(135deg, #2c2c2a 0%, #3d3d3a 100%);
+    border-color: transparent;
+    color: var(--cream);
+  }
+
+  .link-card.highlight::before {
+    background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(138,158,140,0.1));
+  }
+
+  .link-card.highlight .link-label { color: rgba(247,242,236,0.6); }
+  .link-card.highlight .link-title { color: var(--cream); }
+
+  .icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    background: rgba(138,158,140,0.1);
+  }
+
+  .highlight .icon-wrap {
+    background: rgba(201,169,110,0.15);
+  }
+
+  .link-text {
+    flex: 1;
+  }
+
+  .link-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  .link-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .arrow {
+    font-size: 14px;
+    color: var(--sage);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .highlight .arrow { color: var(--gold); }
+
+  .link-card:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Seminar date pill */
+  .date-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 36px;
+    text-align: center;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  .footer-leaf {
+    font-size: 16px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .bottom-ornament {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--sage), transparent);
+    margin: 28px auto 0;
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="top-ornament"></div>
+
+  <div class="avatar-wrap">
+    <div class="avatar-ring"></div>
+    <div class="avatar">ДА</div>
+  </div>
+
+  <h1 class="name">Десислава Ангелова</h1>
+
+  <div class="title-row">
+    <span class="subtitle">Натуропат</span>
+    <div class="divider-dot"></div>
+    <span class="subtitle">Нутрициолог</span>
+    <div class="divider-dot"></div>
+    <span class="subtitle">Цветотерапевт</span>
+  </div>
+
+  <div class="badge">18+ години опит · CMA Великобритания</div>
+
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-symbol">✦</div>
+    <div class="ornament-line"></div>
+  </div>
+
+  <div class="links">
+
+    <a href="https://facebook.com/events/s/%D1%81%D0%B5%D0%BC%D0%B8%D0%BD%D0%B0%D1%80-%D0%B4%D0%B0-%D1%81%D0%B5-%D0%BF%D1%80%D0%B5%D1%80%D0%BE%D0%B4%D0%B8%D1%88-%D0%B4%D1%8A%D0%BB%D0%B1%D0%BE%D0%BA%D0%B8/1254935753235919/" class="link-card highlight" target="_blank">
+      <div class="icon-wrap">🌸</div>
+      <div class="link-text">
+        <div class="link-label">Предстоящо събитие</div>
+        <div class="link-title">Семинар „Да се преродиш"</div>
+        <div class="date-pill">18 Април · Пловдив</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="https://holisticmedicine.bg" class="link-card" target="_blank">
+      <div class="icon-wrap">🌿</div>
+      <div class="link-text">
+        <div class="link-label">Официален сайт</div>
+        <div class="link-title">Холистична Медицина</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="https://holisticmedicine.bg/courses/" class="link-card" target="_blank">
+      <div class="icon-wrap">📚</div>
+      <div class="link-text">
+        <div class="link-label">Обучение</div>
+        <div class="link-title">Курсове & Семинари</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="https://holisticmedicine.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/" class="link-card" target="_blank">
+      <div class="icon-wrap">💬</div>
+      <div class="link-text">
+        <div class="link-label">Запази час</div>
+        <div class="link-title">Индивидуална консултация</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a href="https://www.facebook.com/desi.angelova.902/" class="link-card" target="_blank">
+      <div class="icon-wrap">📘</div>
+      <div class="link-text">
+        <div class="link-label">Социални мрежи</div>
+        <div class="link-title">Facebook профил</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <span class="footer-leaf">🌿</span>
+    <div class="footer-text">Здравето е изкуство & лична отговорност</div>
+  </div>
+
+  <div class="bottom-ornament"></div>
+
+</div>
+</body>
+</html>
